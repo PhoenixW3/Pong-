@@ -23,18 +23,27 @@ namespace Win_Pong
         private void aTimer_Tick(object sender, EventArgs e)
         {
             if (isUpPressed)
-                aPaddle1.Location = new Point(aPaddle1.Location.X, aPaddle1.Location.Y - 3);
+             aPaddle1.Location = new Point(aPaddle1.Location.X, aPaddle1.Location.Y - 3);
+
+             else if (isDownPressed)
+               aPaddle1.Location = new Point(aPaddle1.Location.X, aPaddle1.Location.Y + 3);
+            
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
                 isUpPressed = true;
-        }
 
+              else if (e.KeyCode == Keys.Down)
+                isDownPressed = true;
+        }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Up)
                 isUpPressed = false;
+
+              else if (e.KeyCode == Keys.Down)
+                isDownPressed = false;
         }
     }
 }
